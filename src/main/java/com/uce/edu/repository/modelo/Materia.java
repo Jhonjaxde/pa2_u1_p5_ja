@@ -1,8 +1,12 @@
 package com.uce.edu.repository.modelo;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+//singleton para tener la misma instancia
+@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class Materia {
 
 	private String nombre;
