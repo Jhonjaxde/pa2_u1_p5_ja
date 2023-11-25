@@ -11,7 +11,7 @@ import com.uce.edu.transferencia.repository.modelo.Transferencia;
 @Repository
 public class TransferenciaRepositoryImpl implements ITransferenciaRepository{
 	
-	private static List<Transferencia> base= new ArrayList<>();
+	private static List<Transferencia> base= new ArrayList<Transferencia>();
 	@Override
 	public Transferencia seleccionar(String numero) {
 		//System.out.println("seleccionamos:"+ numero);
