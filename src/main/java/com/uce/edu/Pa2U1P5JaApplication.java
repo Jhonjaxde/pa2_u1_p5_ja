@@ -49,6 +49,10 @@ public class Pa2U1P5JaApplication implements CommandLineRunner {
 		this.transferenciaService.realizar("1234", "5678", new BigDecimal(20));
 		System.out.println(ctaOrigen);
 		System.out.println(ctaDestino);
+		this.transferenciaService.realizar("1234", "5678", new BigDecimal(20));
+		this.transferenciaService.realizar("1234", "5678", new BigDecimal(20));
+		System.out.println(ctaOrigen);
+		System.out.println(ctaDestino);
 		
 		
 	}

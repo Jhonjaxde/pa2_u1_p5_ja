@@ -75,7 +75,7 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 			transferencia.setNumero("123123");
 			
 			this.transferenciaRepository.insertar(transferencia);
-			//System.out.println("Numero de transferencia "+ transferencia.getNumeroTrans());
+			System.out.println("Numero de transferencia "+ transferencia.getNumeroTrans());
 			System.out.println("Transferencia realizada con exito");
 
 		} else {
