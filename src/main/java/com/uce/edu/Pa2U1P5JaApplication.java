@@ -46,32 +46,10 @@ public class Pa2U1P5JaApplication implements CommandLineRunner {
 		ctaDestino.setSaldo(new BigDecimal(200));
 		this.cuentaBancariaService.guardar(ctaDestino);
 
-		this.transferenciaService.realizar("1234", "5678", new BigDecimal(30));
-		// System.out.println(ctaOrigen.hashCode());
-		// System.out.println(ctaDestino.hashCode());
-
-		//CuentaBancaria ctaOrigen1 = this.cuentaBancariaService.buscar("1234");
-		// System.out.println(ctaOrigen1);
-		//CuentaBancaria ctaDestino1 = this.cuentaBancariaService.buscar("5678");
-		// System.out.println(ctaDestino1);
-		this.transferenciaService.realizar("1234", "5678", new BigDecimal(50));
-		this.transferenciaService.realizar("5678", "1234", new BigDecimal(10));
-		// hascode para ver la direccion de un objeto
-		// construir un reporte de cuenta de todas las transferencia
-		// un for en la main
-		List<Transferencia> reporte = this.transferenciaService.buscarTodos();
-		// reporte.add();
-		int indice = 0;
-		for (Transferencia trans : reporte) {
-			indice++;
-			System.out.println(indice + " : " + trans);
-
-		}
+		this.transferenciaService.realizar("1234", "5678", new BigDecimal(20));
+		System.out.println(ctaOrigen);
+		System.out.println(ctaDestino);
 		
-		CuentaBancaria ctaOrigen1 = this.cuentaBancariaService.buscar("1234");
-		 System.out.println(ctaOrigen1);
-		CuentaBancaria ctaDestino1 = this.cuentaBancariaService.buscar("5678");
-		 System.out.println(ctaDestino1);
-		 this.cuentaBancariaService.depositar("5678",  new BigDecimal(100));
+		
 	}
 }
