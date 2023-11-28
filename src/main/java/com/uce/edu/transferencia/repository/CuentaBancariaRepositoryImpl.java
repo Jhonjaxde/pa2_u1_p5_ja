@@ -18,6 +18,10 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository{
 		//System.out.println("seleccionamos:"+ numero);
 		for(CuentaBancaria cuentaBancaria:base) {
 			if(cuentaBancaria.getNumero().equals(numero)) {
+				CuentaBancaria cta = new CuentaBancaria();
+				cta.setCedulaPropietario(cuentaBancaria.getCedulaPropietario());
+				cta.setNumero(cuentaBancaria.getNumero());
+				cta.setSaldo(cuentaBancaria.getSaldo());
 				return cuentaBancaria;
 			}
 		}
@@ -45,6 +49,17 @@ public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository{
 		base.remove(cuentaBancaria);
 		//System.out.println("Se borra:"+ numero);
 		
+	}
+
+	@Override
+	public CuentaBancaria seleccionarEliminar(String numero) {
+		for(CuentaBancaria cuentaBancaria:base) {
+			if(cuentaBancaria.getNumero().equals(numero)) {
+			
+				return cuentaBancaria;
+			}
+			}
+		return null;
 	}
 
 }
