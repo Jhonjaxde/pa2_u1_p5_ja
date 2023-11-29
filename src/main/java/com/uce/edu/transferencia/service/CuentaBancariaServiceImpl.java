@@ -12,10 +12,17 @@ import com.uce.edu.transferencia.repository.modelo.Transferencia;
 
 @Service
 public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
-
+	// en terminos sencillos es un atributo de clase pero tambien es una clase 
+	//de inyeccion de dependencia
+	//exite tres manera de inyeccion de dependencias 
+	//metodo
+	//atributo
+	//constructor
+	
 	@Autowired
 	private ICuentaBancariaRepository cuentaBancariaRepository;
-
+	
+	
 	@Override
 	public CuentaBancaria buscar(String numero) {
 		// TODO Auto-generated method stub
@@ -50,20 +57,16 @@ public class CuentaBancariaServiceImpl implements ICuentaBancariaService {
 	public void depositar(String numeroCuenta, BigDecimal monto) {
 		CuentaBancaria cta = this.cuentaBancariaRepository.seleccionar(numeroCuenta);
 		BigDecimal saldo = cta.getSaldo();
-		if (saldo.compareTo(monto) >= 0) {
-			BigDecimal nuevoSaldo = saldo.multiply(new BigDecimal(0.9));
-			cta.setSaldo(nuevoSaldo);
-			this.cuentaBancariaRepository.actualizar(cta);
-			CuentaBancaria deposito = new CuentaBancaria();
-			deposito.setCedulaPropietario(cta.getCedulaPropietario());
-			deposito.setNumero(numeroCuenta);
-			deposito.setSaldo(nuevoSaldo);
-		}else {
-			System.out.println("Saldo no disponible");
 
-		}
+		BigDecimal nuevoSaldo = monto.multiply(new BigDecimal(0.9));
+		//cta.setSaldo(nuevoSaldo);
+		this.cuentaBancariaRepository.actualizar(cta);
+		CuentaBancaria deposito = new CuentaBancaria();
+		deposito.setCedulaPropietario(cta.getCedulaPropietario());
+		deposito.setNumero(cta.getNumero());
+		deposito.setSaldo(saldo.add(nuevoSaldo));
+		System.out.println(deposito);
+
 	}
-
-	
 
 }

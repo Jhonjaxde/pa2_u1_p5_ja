@@ -1,6 +1,6 @@
 package com.uce.edu;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,22 +11,39 @@ import com.uce.edu.transferencia.repository.modelo.CuentaBancaria;
 import com.uce.edu.transferencia.repository.modelo.Transferencia;
 import com.uce.edu.transferencia.service.ICuentaBancariaService;
 import com.uce.edu.transferencia.service.ITransferenciaService;
-import com.uce.edu.repository.modelo.Materia;
-import com.uce.edu.service.IMateriaService;
+
 
 @SpringBootApplication
 public class Pa2U1P5JaApplication implements CommandLineRunner {
-
-	@Autowired
-	private Materia materia;
+	//INYECCION DE DEPENDENCIAS POR ATRIBUTO (DI)
+	// es mas directo
 	@Autowired
 	private ITransferenciaService transferenciaService;
+	
+	/*INYECCION DE DEPENDENCIAS POR CONSTRUCTOR (DI)
+	@Autowired
+	private ITransferenciaService transferenciaService; 
+	
+	@Autowired
+	public Pa2U1P5JaApplication(ITransferenciaService iTransferenciaService) {
+		this.transferenciaService= iTransferenciaService;
+	}*/
+	/*INYECCION DE DEPENDENCIAS POR METODO (DI)
+	 * se usa con el metodo set 
+	private ITransferenciaService transferenciaService;
+	
+	@Autowired
+	public void setTransferenciaService(ITransferenciaService transferenciaService) {
+		this.transferenciaService = transferenciaService;
+	}*/
+	
 	@Autowired
 	private ICuentaBancariaService cuentaBancariaService;
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U1P5JaApplication.class, args);
 	}
+	
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -72,6 +89,6 @@ public class Pa2U1P5JaApplication implements CommandLineRunner {
 		 System.out.println(ctaOrigen1);
 		CuentaBancaria ctaDestino1 = this.cuentaBancariaService.buscar("5678");
 		 System.out.println(ctaDestino1);
-		 this.cuentaBancariaService.depositar("5678",  new BigDecimal(100));
+		 this.cuentaBancariaService.depositar("5678",  new BigDecimal(10));
 	}
 }
