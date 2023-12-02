@@ -5,13 +5,21 @@ import java.time.LocalDateTime;
 import org.springframework.stereotype.Component;
 @Component
 public class Inventario {
+	private String codigo;
 	private LocalDateTime fechaIngreso;
 	private Bodega bodega;
 	private Producto producto;
 	
 	//SET Y GET
+	
 	public LocalDateTime getFechaIngreso() {
 		return fechaIngreso;
+	}
+	public String getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 	public void setFechaIngreso(LocalDateTime fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
@@ -30,7 +38,8 @@ public class Inventario {
 	}
 	@Override
 	public String toString() {
-		return "Inventario [fechaIngreso=" + fechaIngreso + ", bodega=" + bodega + ", producto=" + producto + "]";
+		return "Inventario [codigo=" + codigo + ", fechaIngreso=" + fechaIngreso + ", bodega=" + bodega + ", producto="
+				+ producto + "]";
 	}
 	
 	

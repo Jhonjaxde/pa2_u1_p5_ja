@@ -1,13 +1,14 @@
 package com.uce.edu.inventario.repository;
 
-import com.uce.edu.inventario.repository.modelo.Bodega;
+
+import com.uce.edu.inventario.repository.modelo.Inventario;
 
 public interface IInventarioRepository {
-	public Bodega seleccionar(String numero);
+	public Inventario seleccionar(String codigo);
 
-	public void insertar(Bodega bodega);
+	public void insertar(Inventario inventario);
 
-	public void actualizar(Bodega bodega);
+	public void actualizar(Inventario inventario);
 
-	public void eliminar(String numero);
+	public void eliminar(String codigo);
 }
